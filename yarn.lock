@@ -2242,7 +2242,7 @@ interpret@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.0.3.tgz#cbc35c62eeee73f19ab7b10a801511401afc0f90"
 
-invariant@^2.2.0:
+invariant@^2.2.0, invariant@^2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.2.tgz#9e1f56ac0acdb6bf303306f338be3b204ae60360"
   dependencies:
@@ -2828,9 +2828,11 @@ nested-error-stacks@^1.0.0:
   dependencies:
     inherits "~2.0.1"
 
-next-page-decorator-invariant@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/next-page-decorator-invariant/-/next-page-decorator-invariant-0.1.1.tgz#75ac479693006dc70b2b275d211978099878b17f"
+next-page-decorator-invariant@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/next-page-decorator-invariant/-/next-page-decorator-invariant-0.1.2.tgz#ae8f8e60f8a8ca80899da93db98c7b39de5e00a6"
+  dependencies:
+    invariant "^2.2.2"
 
 next@^2.1.1:
   version "2.1.1"

@@ -47,6 +47,6 @@
     "parser": "babel-eslint"
   },
   "dependencies": {
-    "next-page-decorator-invariant": "^0.1.1"
+    "next-page-decorator-invariant": "^0.1.2"
   }
 }
