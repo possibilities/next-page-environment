@@ -35,7 +35,14 @@ When developing Next.js apps it can be useful for server-generated values (e.g. 
     // pages/index.js
     import Page from '../decorators/Page'
 
+    // Environment is available as a prop
     const Index = ({ env: { foo } }) => <div>foo: { foo }</div>
+
+    // Environment is available in `getInitialProps`
+    Index.getInitialProps = async ({ env: { foo } }) => {
+      console.log('foo:', foo)
+    }
+
     export default Page(Index)
     ```
 
