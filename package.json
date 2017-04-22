@@ -1,7 +1,7 @@
 {
   "name": "next-page-environment",
   "description": "A decorator that injects server side values across Next.js pages",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "repository": {
     "url": "https://github.com/possibilities/next-page-environment",
     "type": "git"
