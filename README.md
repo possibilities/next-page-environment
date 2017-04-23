@@ -23,7 +23,7 @@ When developing Next.js apps it can be useful for server-generated values (e.g. 
     import PageEnvironment from 'next-page-environment'
 
     export default PageEnvironment({
-      foo: process.env.APP_FOO
+      foo: process.env.FOO
     })
     ```
 
@@ -51,5 +51,5 @@ When developing Next.js apps it can be useful for server-generated values (e.g. 
 1. Start the app
 
     ```
-    APP_FOO=bar yarn dev
+    FOO=foo yarn dev
     ```
