@@ -1,9 +1,7 @@
 import { Component, createElement } from 'react'
 import PageDecoratorInvariant from 'next-page-decorator-invariant'
 
-if (process.browser) {
-  window.__nextPageEnv = window.__nextPageEnv || {}
-}
+let cachedEnv = {}
 
 const pageDecoratorInvariant = PageDecoratorInvariant('PageEnvironment')
 
@@ -13,28 +11,26 @@ const PageEnvironment = env => Page => {
 
   return class PageWrapper extends Component {
     static async getInitialProps (pageContext) {
-      if (process.browser) {
-        // Always restore from cache on client
-        env = window.__nextPageEnv
-      }
-
+      // Pass down accumulated environment to wrapped components
+      const pageContextEnv = { ...env, ...cachedEnv }
       const pageProps = WrappedPage.getInitialProps
-        // Pass down environment to wrapped components
-        ? await WrappedPage.getInitialProps({ ...pageContext, env })
+        ? await WrappedPage.getInitialProps({
+          ...pageContext,
+          env: pageContextEnv
+        })
         : {}
 
       // Pass down environment as a prop
-      return { ...pageProps, env }
+      const pageEnv = { ...pageProps.env, ...env, ...cachedEnv }
+      return { ...pageProps, env: pageEnv }
     }
 
     constructor (props) {
       super(props)
+
+      // Update cache
       if (process.browser) {
-        // Merge into existing cache of page env values
-        window.__nextPageEnv = {
-          ...window.__nextPageEnv,
-          ...props.env
-        }
+        cachedEnv = { ...cachedEnv, ...props.env }
       }
     }
 

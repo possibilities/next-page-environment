@@ -3,6 +3,7 @@
 set -e
 
 [ -z "${FOO}" ] && echo "FOO is required" && exit 1;
+[ -z "${BAR}" ] && echo "BAR is required" && exit 1;
 
 # install and link libray
 yarn install
