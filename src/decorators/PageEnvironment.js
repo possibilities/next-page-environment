@@ -1,7 +1,9 @@
 import { Component, createElement } from 'react'
 import PageDecoratorInvariant from 'next-page-decorator-invariant'
 
-window.__nextPageEnv = window.__nextPageEnv || {}
+if (process.browser) {
+  window.__nextPageEnv = window.__nextPageEnv || {}
+}
 
 const pageDecoratorInvariant = PageDecoratorInvariant('PageEnvironment')
 
